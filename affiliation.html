@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Genuiny</title>
+
+	<!----Favicon----->
+	<link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+	<link rel="manifest" href="images/favicon/site.webmanifest">
+	<link rel="mask-icon" href="images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="shortcut icon" href="images/favicon/favicon.ico">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="msapplication-config" content="images/favicon/browserconfig.xml">
+	<meta name="theme-color" content="#ffffff">
+
+	<!--------BOOTSTRAP----------->
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+
+	<link rel="stylesheet" type="text/css" href="style/style.css">
+	<link rel="stylesheet" type="text/css" href="affiliation/sliding-calculator.css">
+
+	<!--------GOOGLE FONTS-------->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+	<header>
+		<!-----navbar flex------>
+		<div class="container-navbar container-navbar-white">
+			<nav class="navbar navbar-expand-lg">
+				<a class="navbar-brand" href="index.html"><img class="white" src="images/svg-logo-ethical.png"></a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link" aria-current="page" href="index.html">HOME</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="subscribe.html">ISCRIVITI</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="affiliation.html">AFFILIAZIONI</a>					
+						</li>
+						<li class="nav-item">
+							<a class="nav-link">ALTRO</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+		<div class="container-navbar container-navbar-slide">
+			<nav class="navbar navbar-slide navbar-expand-lg">
+				<a class="navbar-brand" href="index.html"><img class="black" src="images/svg-logo-ethical-w.png"></a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link" aria-current="page" href="index.html">HOME</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="subscribe.html">ISCRIVITI</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="affiliation.html">AFFILIAZIONI</a>					
+						</li>
+						<li class="nav-item">
+							<a class="nav-link">ALTRO</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</header>
+		
+		<main>
+			<div class="container">
+				<h1 class="title">Filiera</h1>
+				<p>La filiera è il ventaglio di contatti che l'utente porta in app.<br>
+					Per esempio portando 2 persone che a loro volta aggiungono ognuno 2 persone: guadagnerò su 6 utenti (due al 1° livello e 4 al 2°).<br>
+					L'utente che <a href="invite.html">invita</a> altri contatti a registrarsi riceve dei compensi; premio "Autentica" e "Rendita". Per farti un'idea del potenziale puoi utilizzare il calcolatore messo a disposizione su questa pagina.
+					<br><br>
+					Prova il calcolatore e dai un'occhiata al potenziale della filiera dei contatti, sono riportati anche i valori dei premi per singolo utente evidenziati in giallo.</p>
+				<p></p>
+			</div>
+			<div class="wrapper">
+				<div class="anchor-adjust-calculator" id="calculator"></div>
+
+
+				<h1 class="wrapper__title">Calcolatore filiera</h1>
+				<form class="calculator">
+
+						<div class="calculator_row_monthly">
+								<label for="tip">Rendita media <img src="images/info-circle.svg" alt="info"><span class="tip-amount"></span></label>
+								<input type="range" min="5" max="30" value="5" step="5" id="tip_monthly" required/>
+								<p class="monthly"></p>
+						</div>
+
+
+						<div class="calculator__row">
+								<label for="tip">Utenti totali 1° Livello:<span class="tip-amount"></span></label>
+								<input class="input calculator__tip" type="number" min="0" max="10" value="0" step="1" id="tip1" required/>
+						</div>
+						<div class="calculator__row">
+							<label for="tip">Utenti totali 2° Livello:<span class="tip-amount"></span></label>
+							<input class="input calculator__tip" type="number" min="0" max="10" value="0" step="1" id="tip2" required/>
+						</div>
+						<div class="calculator__row">
+							<label for="tip">Utenti totali 3° Livello:<span class="tip-amount"></span></label>
+							<input class="input calculator__tip" type="number" min="0" max="10" value="0" step="1" id="tip3" required/>
+						</div>
+						<div class="calculator__row">
+							<label for="tip">Utenti totali 4° Livello:<span class="tip-amount"></span></label>
+							<input class="input calculator__tip" type="number" min="0" max="10" value="0" step="1" id="tip4" required/>
+						</div>
+						<div class="calculator__row">
+							<label for="tip">Utenti totali 5° Livello:<span class="tip-amount"></span></label>
+							<input class="input calculator__tip" type="number" min="0" max="10" value="0" step="1" id="tip5" required/>
+						</div>
+
+						<div class="result__row">
+							<div class="box-info autentica">
+								<h2 class="info">
+									<span class="two-lines">Premio
+									<span class="second-line">Autentica:</span></span>
+									<span class="autentica_result info-number"></span>
+								</h2>
+								<p>Il premio Autentica viene conferito <b>una tantum</b> all'utente che invita una persona<br><a href="#table-autentica">Vedi tabella<a/></p>
+							</div>
+							<div class="box-info rendita">
+								<h2 class="info">
+									<span class="two-lines">Premio
+									<span class="second-line">Rendita:</span></span>
+									<span class="rendita_result info-number"></span>
+								</h2>
+								<p>Il premio Rendita viene conferito <b>mensilmente</b> in percentuale al profitto degli utenti della filiera<br><a href="#table-rendita">Vedi tabella<a/></p>
+							</div>
+
+						</div>
+				</form>
+
+
+			</div>
+				<!----<strong>Preview:</strong><br>
+				<p class="hover-underline-animation">Hover w3resource text to see the effect!</p>--->
+
+			<div class="table-container">
+				<div class="table-title">Premio Autentica</div>
+				<div class="anchor-adjust-tab1" id="table-autentica"></div>
+				<div class="table-grid tables">
+				
+					<div class="table-item first-row">Livello</div>
+					<div class="table-item first-row">Numero utenti</div>
+					<div class="table-item first-row">Premio per utente</div>
+					<div class="table-item first-row">Premio per livello</div>
+
+					<div class="table-item">1°</div>
+					<div class="table-item"id="tab1_u1"></div>
+					<div class="table-item"><span class="yellow_amount">10 €</span></div>
+					<div class="table-item"id="tab1_p1"></div>
+
+					<div class="table-item">2°</div>
+					<div class="table-item"id="tab1_u2"></div>
+					<div class="table-item"><span class="yellow_amount">0,50 €</span></div>
+					<div class="table-item"id="tab1_p2"></div>
+
+					<div class="table-item">3°</div>
+					<div class="table-item"id="tab1_u3"></div>
+					<div class="table-item"><span class="yellow_amount">1 €</span></div>
+					<div class="table-item"id="tab1_p3"></div>
+
+					<div class="table-item">4°</div>
+					<div class="table-item"id="tab1_u4"></div>
+					<div class="table-item"><span class="yellow_amount">1,50 €</span></div>
+					<div class="table-item"id="tab1_p4"></div>
+
+					<div class="table-item">5°</div>
+					<div class="table-item"id="tab1_u5"></div>
+					<div class="table-item"><span class="yellow_amount">2 €</span></div>
+					<div class="table-item"id="tab1_p5"></div>
+
+					<div class="table-item last-row"></div>
+					<div class="table-item last-row">Totale utenti:<br><span id="tab1_u12345"></span></div>
+					<div class="table-item last-row"></div>
+					<div class="table-item last-row">Totale premio:<br><span class="autentica_result"></span><br></div>
+				</div>
+				<div class="table-title back-on-top"><a href="#calculator"><img src="images/up-icon.png" alt="back on top icon"></a></div>
+
+				<div class="table-title" id="table-rendita">Premio Rendita</div>
+				<div class="table-grid tables">
+					<div class="table-item first-row"><span>Livello</span></div>
+					<div class="table-item first-row"><span>Numero utenti</span></div>
+					<div class="table-item first-row"><span>Premio per utente</span></div>
+					<div class="table-item first-row"><span>Premio per livello</span></div>
+
+					<div class="table-item">1°</div>
+					<div class="table-item"id="tab2_u1"></div>
+					<div class="table-item"><span class="yellow_amount">2%</span><span class="monthly"></span></div>
+					<div class="table-item"id="tab2_p1"></div>
+
+					<div class="table-item">2°</div>
+					<div class="table-item"id="tab2_u2"></div>
+					<div class="table-item"><span class="yellow_amount">1%</span><span class="monthly"></span></div>
+					<div class="table-item"id="tab2_p2"></div>
+
+					<div class="table-item">3°</div>
+					<div class="table-item"id="tab2_u3"></div>
+					<div class="table-item"><span class="yellow_amount">1%</span><span class="monthly"> </span></div>
+					<div class="table-item"id="tab2_p3"></div>
+
+					<div class="table-item">4°</div>
+					<div class="table-item"id="tab2_u4"></div>
+					<div class="table-item"><span class="yellow_amount">1%</span><span class="monthly"> </span></div>
+					<div class="table-item"id="tab2_p4"></div>
+
+					<div class="table-item">5°</div>
+					<div class="table-item"id="tab2_u5"></div>
+					<div class="table-item"><span class="yellow_amount">2%</span><span class="monthly"></span></div>
+					<div class="table-item"id="tab2_p5"></div>
+
+					<div class="table-item last-row"></div>
+					<div class="table-item last-row">Totale utenti:<br><span id="tab2_u12345"></span></div>
+					<div class="table-item last-row"></div>
+					<div class="table-item last-row">Totale premio:<br><span class="rendita_result"></span><br></div>
+				</div>
+				<div class="table-title back-on-top"><a href="#calculator"><img src="images/up-icon.png" alt="back on top icon"></a></div>
+
+			</div>
+
+		</main>
+
+	<footer>
+		
+	</footer>
+
+	<!----- BOOTSTRAP ------->
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+	
+	<script src="affiliation/sliding-calculator.js" type="text/javascript"></script>
+	<script src="script.js" type="text/javascript"></script>
+</body>
