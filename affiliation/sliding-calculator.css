@@ -49,6 +49,7 @@
 
 .form-btn input{
     width: 12vw;
+    min-width: 50px;
 }
 
 .calculator__row p{
