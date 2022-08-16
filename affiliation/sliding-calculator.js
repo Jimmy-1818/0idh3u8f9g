@@ -157,9 +157,11 @@ function on_focus(){
 
 on_focus()
 
-document.getElementById("cancel-1").addEventListener("click", image_cancel)
+/***
+
+document.getElementsByClassName("cancel")[0].addEventListener("click", image_cancel(this.count))
 function image_cancel(){
-    document.getElementById("tip1").value = 0
+    document.getElementById("tip1").value = ""
     on_focus()
 }
 document.getElementById("plus-1").addEventListener("click", image_plus)
@@ -167,3 +169,4 @@ function image_plus(){
     document.getElementsByClassName("calculator__tip")[0].value++
     on_focus()
 }
+***/

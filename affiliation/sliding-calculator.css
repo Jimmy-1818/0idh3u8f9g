@@ -22,7 +22,7 @@
     gap: 4vw;
     align-items: center;
     margin-bottom: 10px;
-    width: 100vw;
+    width: 100%;
     max-width: 800px;
 }
 
@@ -90,7 +90,7 @@
 }
 
 .calculator__tip {
-    width: 15%;
+    width: calc(30% + 1vw);
 }
 
 h2.info {
