@@ -1,12 +1,19 @@
 
 /****Run everything on every change in one of the input through autentica_cacl()**/
 
-document.getElementById("tip_monthly").addEventListener("change", on_slider_change);
-document.getElementById("tip1").addEventListener("change", on_slider_change);
-document.getElementById("tip2").addEventListener("change", on_slider_change);
-document.getElementById("tip3").addEventListener("change", on_slider_change);
-document.getElementById("tip4").addEventListener("change", on_slider_change);
-document.getElementById("tip5").addEventListener("change", on_slider_change);
+document.getElementById("tip_monthly").addEventListener("change", on_focus);
+document.getElementById("tip1").addEventListener("change", on_focus);
+document.getElementById("tip2").addEventListener("change", on_focus);
+document.getElementById("tip3").addEventListener("change", on_focus);
+document.getElementById("tip4").addEventListener("change", on_focus);
+document.getElementById("tip5").addEventListener("change", on_focus);
+
+document.getElementById("tip_monthly").addEventListener("focus", on_focus);
+document.getElementById("tip1").addEventListener("focus", on_focus);
+document.getElementById("tip2").addEventListener("focus", on_focus);
+document.getElementById("tip3").addEventListener("focus", on_focus);
+document.getElementById("tip4").addEventListener("focus", on_focus);
+document.getElementById("tip5").addEventListener("focus", on_focus);
 
 
 var monthly = 0
@@ -134,7 +141,7 @@ function tab_value_update(){
 }
 
 
-function on_slider_change(){
+function on_focus(){
     //**reconstruct_branch()**/
     vars_def()
     slider_value_update()
@@ -148,5 +155,4 @@ function on_slider_change(){
     document.getElementsByClassName("rendita_result")[1].innerHTML = format_prize(result_r)
 }
 
-
-on_slider_change()
+on_focus()
