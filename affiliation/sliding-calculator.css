@@ -37,7 +37,7 @@
 .calculator__row label {
     position: relative;
     font-weight: 700;
-    font-size: calc(1rem + 0.7vw);
+    font-size: calc(1.2rem + 0.4vw);
 }
 
 .calculator__row img{
