@@ -162,11 +162,11 @@ var input = document.getElementById('tip1');
 var currentValue;
 
 input.addEventListener('input', function(event) {
-  var cursorPosition = getCaretPosition(input);
-  var valueBefore = input.value;
+    var cursorPosition = getCaretPosition(input);
+    var valueBefore = input.value;
     var lengthBefore = input.value.length;
-  var specialCharsBefore = getSpecialCharsOnSides(input.value);
-  var number = removeThousandSeparators(input.value);
+    var specialCharsBefore = getSpecialCharsOnSides(input.value);
+    var number = removeThousandSeparators(input.value);
 
   if (input.value == '') {
     return;
@@ -217,7 +217,7 @@ function getThousandSeparator() {
 }
 
 function getCommaSeparator() {
-  return getNumberFormat().format('0.01').replace(/[0-9]/g, '')[0];
+  return getNumberFormat().format('0.01').replace(/[0-9]/g, '.')[0];
 }
 
 function getNumberFormat() {
@@ -280,6 +280,8 @@ function setCaretPosition(elem, caretPos) {
         }
     }
 }
+
+
 /***
 
 document.getElementsByClassName("cancel")[0].addEventListener("click", image_cancel(this.count))
