@@ -168,8 +168,7 @@ var input = document.getElementById('tip1');
 var currentValue;
 
 input.addEventListener('input', function(event) {
-    console.log("EVENT: " + event)
-    console.log("INPUT: " + input)
+    console.log("")
     var cursorPosition = getCaretPosition(input);
     var valueBefore = input.value;
     var lengthBefore = input.value.length;
