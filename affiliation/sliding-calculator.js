@@ -40,6 +40,10 @@ var l4_r = 0
 var l5_r = 0
 var result_r = 0
 
+function number_strip(number){
+    number=number.replaceAll('.', '');
+    return number
+}
 
 function format_user(number){
     return Number(number).toLocaleString("es-ES", {minimumFractionDigits: 0});
@@ -70,11 +74,13 @@ function reconstruct_branch(){
 function vars_def(){
     monthly = document.getElementById("tip_monthly").value
 
-    s1 = document.getElementById("tip1").value
-    s2 = document.getElementById("tip2").value
-    s3 = document.getElementById("tip3").value
-    s4 = document.getElementById("tip4").value
-    s5 = document.getElementById("tip5").value
+
+
+    s1 = number_strip(document.getElementById("tip1").value)
+    s2 = number_strip(document.getElementById("tip2").value)
+    s3 = number_strip(document.getElementById("tip3").value)
+    s4 = number_strip(document.getElementById("tip4").value)
+    s5 = number_strip(document.getElementById("tip5").value)
 
     l1_a = (s1*10)
     l2_a = (s2*0.5) 
@@ -162,6 +168,8 @@ var input = document.getElementById('tip1');
 var currentValue;
 
 input.addEventListener('input', function(event) {
+    console.log("EVENT: " + event)
+    console.log("INPUT: " + input)
     var cursorPosition = getCaretPosition(input);
     var valueBefore = input.value;
     var lengthBefore = input.value.length;
