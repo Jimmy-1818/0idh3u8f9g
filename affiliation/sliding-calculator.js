@@ -173,8 +173,13 @@ input.addEventListener('input', function(event) {
     var lengthBefore = input.value.length;
     var specialCharsBefore = getSpecialCharsOnSides(input.value);
     var number = removeThousandSeparators(input.value);
+    var currentValue = input.value
 
   if (input.value == '') {
+    return;
+  }
+  else if (input.value == 'NaN'){
+    input.value = ''
     return;
   }
   
