@@ -163,9 +163,10 @@ function on_focus(){
 
 on_focus()
 
+let input = document.querySelectorAll(".input");
 
-var input = document.getElementById('tip1');
-var currentValue;
+
+input.forEach(input => {
 
 input.addEventListener('input', function(event) {
     console.log("")
@@ -203,6 +204,7 @@ input.addEventListener('input', function(event) {
   setCaretPosition(input, cursorPosition);
   
   currentValue = input.value;
+});
 });
 
 function getSpecialCharsOnSides(x, cursorPosition) {
