@@ -31,7 +31,7 @@
 }
 
 .calculator__row:last-of-type{
-    padding-bottom: 10px;
+    padding-bottom: 100px;
 }
 
 .calculator__row label {
@@ -104,6 +104,7 @@ h2.info {
 
 .two-lines{
     display: block;
+    padding-top: 10px;
 }
 .second-line{
     display: block;
@@ -376,6 +377,9 @@ h2.info {
         display: inline-block;
     }
 
+    .two-lines{
+        padding-top: 0;
+    }
 }
 
 /*Chrome slider color change*/

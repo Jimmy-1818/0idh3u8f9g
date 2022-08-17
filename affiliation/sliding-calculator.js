@@ -164,8 +164,6 @@ function on_focus(){
 on_focus()
 
 let input = document.querySelectorAll(".input");
-
-
 input.forEach(input => {
 
 input.addEventListener('input', function(event) {
