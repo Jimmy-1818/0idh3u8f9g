@@ -28,6 +28,8 @@
 
 .calculator__row input{
     text-align: center;
+    border-radius: 10px;
+    border: 2px solid #909090;
 }
 
 .calculator__row:last-of-type{
