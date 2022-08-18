@@ -41,7 +41,7 @@ var l5_r = 0
 var result_r = 0
 
 function number_strip(number){
-    number=number.replaceAll('.', '');
+    number = number.replace(/\D/g,'')
     return number
 }
 
@@ -167,7 +167,6 @@ let input = document.querySelectorAll(".input");
 input.forEach(input => {
 
 input.addEventListener('input', function(event) {
-    console.log("")
     var cursorPosition = getCaretPosition(input);
     var valueBefore = input.value;
     var lengthBefore = input.value.length;
@@ -178,7 +177,7 @@ input.addEventListener('input', function(event) {
   if (input.value == '') {
     return;
   }
-  else if (input.value == 'NaN'){
+  else if (input.value.replace(/[0-9]/g,'').replaceAll('.', '') != ''){
     input.value = ''
     return;
   }
