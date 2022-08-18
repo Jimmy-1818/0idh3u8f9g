@@ -356,20 +356,19 @@ h2.info {
     left: 50%;
 }
 
-.restore-size{
-    font-size: 100%;
-    background-color: #0abbb5;
+.info{
+    font-size: calc(2rem + 0.4vw);
 }
 
 .reduce-8{
-    font-size: 80%;
+    font-size: calc(0.8em + 0.4vw);
 
 }
 .reduce-6{
-    font-size: 60%;
+    font-size: calc(0.65em + 0.4vw);
 }
 .reduce-4{
-    font-size: 40%;
+    font-size: calc(0.5em + 0.4vw);
 }
 
 
@@ -398,6 +397,9 @@ h2.info {
 
     .two-lines{
         padding-top: 0;
+    }
+    .reduce-8, .reduce-6, .reduce-4{
+        font-size: calc(2rem + 0.4vw);
     }
 }
 

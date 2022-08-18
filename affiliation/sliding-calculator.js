@@ -15,12 +15,6 @@ document.getElementById("tip3").addEventListener("focus", on_focus);
 document.getElementById("tip4").addEventListener("focus", on_focus);
 document.getElementById("tip5").addEventListener("focus", on_focus);
 
-document.getElementById("tip_monthly").addEventListener("change", resize_result);
-document.getElementById("tip1").addEventListener("change", resize_result);
-document.getElementById("tip2").addEventListener("change", resize_result);
-document.getElementById("tip3").addEventListener("change", resize_result);
-document.getElementById("tip4").addEventListener("change", resize_result);
-document.getElementById("tip5").addEventListener("change", resize_result);
 
 var monthly = 0
 
@@ -158,6 +152,7 @@ function on_focus(){
     vars_def()
     slider_value_update()
     tab_value_update()
+    resize_result()
 
 
     document.getElementsByClassName("autentica_result")[0].innerHTML = format_prize(result_a)
@@ -174,35 +169,41 @@ on_focus()
 
 
 function resize_result(){
-    var result_a = document.getElementsByClassName("info-number")[0]
-    console.log("result_a.length: ", result_a.textContent.length)
-    //** + 2 chr to consider**//
+    var results = [format_prize(result_a), format_prize(result_r)]
+    var results_scoped = document.getElementsByClassName("resize-text")
+    console.log("result_Scoped: ", results_scoped)
+    console.log("result_Scoped[2]: ", results_scoped[2])
 
-    if (result_a.textContent.length < 13){
-        result_a.classList.remove("reduce-8")
-        result_a.classList.remove("reduce-6")
-        result_a.classList.remove("reduce-4")
-    }    
-    if ((result_a.textContent.length > 12) && (!(result_a.classList.contains("reduce-8")))){
-        result_a.classList.add("reduce-8");
-        result_a.classList.remove("reduce-6")
-        result_a.classList.remove("reduce-4")
-        console.log("result_a.classList: ", result_a.classList)
-    }
-    if ((result_a.textContent.length > 15) && (!(result_a.classList.contains("reduce-6")))){
-        result_a.classList.add("reduce-6");
-        result_a.classList.remove("reduce-8")
-        result_a.classList.remove("reduce-4")
-        console.log("result_a.classList: ", result_a.classList)
-    }
-    if ((result_a.textContent.length > 18) && (!(result_a.classList.contains("reduce-4")))){
-        result_a.classList.add("reduce-4");
-        result_a.classList.remove("reduce-8")
-        result_a.classList.remove("reduce-6")
-        console.log("result_a.classList: ", result_a.classList)
+    console.log("result_Scoped: ", results_scoped)
+    console.log("result_Scoped[2]: ", results_scoped[2])
+    for (var i = 0; i < results.length; i++) {
+
+        /* count just the numbers */
+        var numbers_count = results[i].length - results[i].replace(/[0-9]/g,'').length 
+        console.log("numbers_count: ", numbers_count) 
+
+        if ((numbers_count > 5) && (!(results_scoped[i].classList.contains("reduce-8")))){
+            results_scoped[i].classList.add("reduce-8");
+            results_scoped[i].classList.remove("reduce-6")
+            results_scoped[i].classList.remove("reduce-4")
+        }
+        if ((numbers_count > 7) && (!(results_scoped[i].classList.contains("reduce-6")))){
+            results_scoped[i].classList.add("reduce-6");
+            results_scoped[i].classList.remove("reduce-8")
+            results_scoped[i].classList.remove("reduce-4")
+        }
+        if ((numbers_count > 9) && (!(results_scoped[i].classList.contains("reduce-4")))){
+            results_scoped[i].classList.add("reduce-4");
+            results_scoped[i].classList.remove("reduce-8")
+            results_scoped[i].classList.remove("reduce-6")
+        }
+        if (numbers_count < 6){
+            results_scoped[i].classList.remove("reduce-8")
+            results_scoped[i].classList.remove("reduce-6")
+            results_scoped[i].classList.remove("reduce-4")
+        }    
     }
 }
-
 
 
 
