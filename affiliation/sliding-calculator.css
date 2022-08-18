@@ -172,6 +172,7 @@ h2.info {
     grid-template-rows: minmax(50px, auto) repeat(5, 30px) minmax(55px, auto);
     width: 100%;
     border-top: 3px solid #0abbb5;
+    overflow: auto;
 }
 
 
