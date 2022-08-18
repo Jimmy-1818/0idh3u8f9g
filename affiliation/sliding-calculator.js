@@ -166,48 +166,64 @@ on_focus()
 
 
 
+var input = document.getElementsByClassName("input");
+for (let i = 0; i < input.length; i++){
+    input[i].addEventListener('keyup', function(evt){
+    var n = parseInt(this.value.replace(/\D/g,''),10);
+    if (input[i].value == ''){
+        n = ''
+    }
+    console.log(input[i].value.length);
+    if (input[i].value.length > 12){
+        n = ''
+    }
+    input[i].value = n.toLocaleString();
+}, false);
+}
 
 
 function resize_result(){
     var results = [format_prize(result_a), format_prize(result_r)]
     var results_scoped = document.getElementsByClassName("resize-text")
-    console.log("result_Scoped: ", results_scoped)
-    console.log("result_Scoped[2]: ", results_scoped[2])
-
-    console.log("result_Scoped: ", results_scoped)
-    console.log("result_Scoped[2]: ", results_scoped[2])
-    for (var i = 0; i < results.length; i++) {
+    for (var i = 0; i < results_scoped.length; i++) {
 
         /* count just the numbers */
-        var numbers_count = results[i].length - results[i].replace(/[0-9]/g,'').length 
-        console.log("numbers_count: ", numbers_count) 
+        var numbers_count = number_strip(results_scoped[i].textContent).length - number_strip(results_scoped[i].textContent.replace(/[0-9]/g,'')).length
 
-        if ((numbers_count > 5) && (!(results_scoped[i].classList.contains("reduce-8")))){
-            results_scoped[i].classList.add("reduce-8");
-            results_scoped[i].classList.remove("reduce-6")
+        if ((numbers_count > 5) && (!(results_scoped[i].classList.contains("reduce-1")))){
+            results_scoped[i].classList.add("reduce-1");
+            results_scoped[i].classList.remove("reduce-2")
+            results_scoped[i].classList.remove("reduce-3")
             results_scoped[i].classList.remove("reduce-4")
         }
-        if ((numbers_count > 7) && (!(results_scoped[i].classList.contains("reduce-6")))){
-            results_scoped[i].classList.add("reduce-6");
-            results_scoped[i].classList.remove("reduce-8")
+        if ((numbers_count > 7) && (!(results_scoped[i].classList.contains("reduce-2")))){
+            results_scoped[i].classList.add("reduce-2");
+            results_scoped[i].classList.remove("reduce-1")
+            results_scoped[i].classList.remove("reduce-3")
             results_scoped[i].classList.remove("reduce-4")
         }
-        if ((numbers_count > 9) && (!(results_scoped[i].classList.contains("reduce-4")))){
+        if ((numbers_count > 9) && (!(results_scoped[i].classList.contains("reduce-3")))){
+            results_scoped[i].classList.add("reduce-3");
+            results_scoped[i].classList.remove("reduce-1")
+            results_scoped[i].classList.remove("reduce-2")
+            results_scoped[i].classList.remove("reduce-4")
+        }
+        if ((numbers_count > 10) && (!(results_scoped[i].classList.contains("reduce-4")))){
             results_scoped[i].classList.add("reduce-4");
-            results_scoped[i].classList.remove("reduce-8")
-            results_scoped[i].classList.remove("reduce-6")
+            results_scoped[i].classList.remove("reduce-1")
+            results_scoped[i].classList.remove("reduce-2")
+            results_scoped[i].classList.remove("reduce-3")
         }
         if (numbers_count < 6){
-            results_scoped[i].classList.remove("reduce-8")
-            results_scoped[i].classList.remove("reduce-6")
+            results_scoped[i].classList.remove("reduce-1")
+            results_scoped[i].classList.remove("reduce-2")
+            results_scoped[i].classList.remove("reduce-3")
             results_scoped[i].classList.remove("reduce-4")
         }    
     }
 }
 
-
-
-
+/*
 let input = document.querySelectorAll(".input");
 input.forEach(input => {
 
@@ -280,8 +296,10 @@ function getCommaSeparator() {
 function getNumberFormat() {
     return new Intl.NumberFormat();
 }
+/*
 
 /* From: http://stackoverflow.com/a/6969486/496992 */
+/*
 function escapeRegExp(str) {
   return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
 }
@@ -290,7 +308,6 @@ function escapeRegExp(str) {
 ** Returns the caret (cursor) position of the specified text field.
 ** Return value range is 0-oField.value.length.
 ** From: http://stackoverflow.com/a/2897229/496992
-*/
 function getCaretPosition (oField) {
   // Initialize
   var iCaretPos = 0;
@@ -319,7 +336,7 @@ function getCaretPosition (oField) {
   return iCaretPos;
 }
 
-/* From: http://stackoverflow.com/a/512542/496992 */
+/* From: http://stackoverflow.com/a/512542/496992 
 function setCaretPosition(elem, caretPos) {
     if(elem != null) {
         if(elem.createTextRange) {
@@ -337,7 +354,7 @@ function setCaretPosition(elem, caretPos) {
         }
     }
 }
-
+/*
 
 /***
 
