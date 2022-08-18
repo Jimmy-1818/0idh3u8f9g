@@ -40,8 +40,17 @@ var l4_r = 0
 var l5_r = 0
 var result_r = 0
 
+function is_number(number){
+    if (number.replaceAll('.', '') != number_strip(number)){
+        return false
+    }
+    else{
+        return true
+    }
+}
+
 function number_strip(number){
-    number = number.replace(/\D/g,'')
+    number = number.replace(/\D/g, '')
     return number
 }
 
@@ -171,7 +180,7 @@ function format_input(){
     for (let i = 0; i < input.length; i++){
         input[i].addEventListener('input', function(evt){
         var n = parseInt(this.value.replace(/\D/g,''),10);
-        if (input[i].value == '' || input[i].value == 0){
+        if (input[i].value == '' || input[i].value == 0 || !is_number(input[i].value)){
             n = ''
         }
         if (input[i].value.length > 13){
