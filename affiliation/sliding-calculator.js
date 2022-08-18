@@ -190,9 +190,7 @@ function format_input(){
     }, false);}
 }
 
-
 function resize_result(){
-    var results = [format_prize(result_a), format_prize(result_r)]
     var results_scoped = document.getElementsByClassName("resize-text")
     for (var i = 0; i < results_scoped.length; i++) {
 
