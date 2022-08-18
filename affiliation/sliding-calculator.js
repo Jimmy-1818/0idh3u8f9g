@@ -169,12 +169,12 @@ on_focus()
 function format_input(){
     var input = document.getElementsByClassName("input");
     for (let i = 0; i < input.length; i++){
-        input[i].addEventListener('keyup', function(evt){
+        input[i].addEventListener('input', function(evt){
         var n = parseInt(this.value.replace(/\D/g,''),10);
         if (input[i].value == '' || input[i].value == 0){
             n = ''
         }
-        if (input[i].value.length > 12){
+        if (input[i].value.length > 13){
             n = ''
         }
         input[i].value = n.toLocaleString();
