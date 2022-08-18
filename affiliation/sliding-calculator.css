@@ -356,6 +356,22 @@ h2.info {
     left: 50%;
 }
 
+.restore-size{
+    font-size: 100%;
+    background-color: #0abbb5;
+}
+
+.reduce-8{
+    font-size: 80%;
+
+}
+.reduce-6{
+    font-size: 60%;
+}
+.reduce-4{
+    font-size: 40%;
+}
+
 
 @media screen and (min-width: 1279px){
     h2.info{
@@ -384,6 +400,7 @@ h2.info {
         padding-top: 0;
     }
 }
+
 
 /*Chrome slider color change*/
 @media screen and (-webkit-min-device-pixel-ratio:0) {

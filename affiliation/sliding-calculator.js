@@ -15,6 +15,12 @@ document.getElementById("tip3").addEventListener("focus", on_focus);
 document.getElementById("tip4").addEventListener("focus", on_focus);
 document.getElementById("tip5").addEventListener("focus", on_focus);
 
+document.getElementById("tip_monthly").addEventListener("change", resize_result);
+document.getElementById("tip1").addEventListener("change", resize_result);
+document.getElementById("tip2").addEventListener("change", resize_result);
+document.getElementById("tip3").addEventListener("change", resize_result);
+document.getElementById("tip4").addEventListener("change", resize_result);
+document.getElementById("tip5").addEventListener("change", resize_result);
 
 var monthly = 0
 
@@ -163,6 +169,44 @@ function on_focus(){
 
 on_focus()
 
+
+
+
+
+function resize_result(){
+    var result_a = document.getElementsByClassName("info-number")[0]
+    console.log("result_a.length: ", result_a.textContent.length)
+    //** + 2 chr to consider**//
+
+    if (result_a.textContent.length < 13){
+        result_a.classList.remove("reduce-8")
+        result_a.classList.remove("reduce-6")
+        result_a.classList.remove("reduce-4")
+    }    
+    if ((result_a.textContent.length > 12) && (!(result_a.classList.contains("reduce-8")))){
+        result_a.classList.add("reduce-8");
+        result_a.classList.remove("reduce-6")
+        result_a.classList.remove("reduce-4")
+        console.log("result_a.classList: ", result_a.classList)
+    }
+    if ((result_a.textContent.length > 15) && (!(result_a.classList.contains("reduce-6")))){
+        result_a.classList.add("reduce-6");
+        result_a.classList.remove("reduce-8")
+        result_a.classList.remove("reduce-4")
+        console.log("result_a.classList: ", result_a.classList)
+    }
+    if ((result_a.textContent.length > 18) && (!(result_a.classList.contains("reduce-4")))){
+        result_a.classList.add("reduce-4");
+        result_a.classList.remove("reduce-8")
+        result_a.classList.remove("reduce-6")
+        console.log("result_a.classList: ", result_a.classList)
+    }
+}
+
+
+
+
+
 let input = document.querySelectorAll(".input");
 input.forEach(input => {
 
@@ -177,6 +221,7 @@ input.addEventListener('input', function(event) {
   if (input.value == '') {
     return;
   }
+
   else if (input.value.replace(/[0-9]/g,'').replaceAll('.', '') != ''){
     input.value = ''
     return;
