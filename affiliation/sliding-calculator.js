@@ -149,6 +149,7 @@ function tab_value_update(){
 
 function on_focus(){
     //**reconstruct_branch()**/
+    format_input()
     vars_def()
     slider_value_update()
     tab_value_update()
@@ -165,20 +166,19 @@ function on_focus(){
 on_focus()
 
 
-
-var input = document.getElementsByClassName("input");
-for (let i = 0; i < input.length; i++){
-    input[i].addEventListener('keyup', function(evt){
-    var n = parseInt(this.value.replace(/\D/g,''),10);
-    if (input[i].value == ''){
-        n = ''
-    }
-    console.log(input[i].value.length);
-    if (input[i].value.length > 12){
-        n = ''
-    }
-    input[i].value = n.toLocaleString();
-}, false);
+function format_input(){
+    var input = document.getElementsByClassName("input");
+    for (let i = 0; i < input.length; i++){
+        input[i].addEventListener('keyup', function(evt){
+        var n = parseInt(this.value.replace(/\D/g,''),10);
+        if (input[i].value == '' || input[i].value == 0){
+            n = ''
+        }
+        if (input[i].value.length > 12){
+            n = ''
+        }
+        input[i].value = n.toLocaleString();
+    }, false);}
 }
 
 
