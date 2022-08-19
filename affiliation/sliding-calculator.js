@@ -8,13 +8,6 @@ document.getElementById("tip3").addEventListener("change", on_focus);
 document.getElementById("tip4").addEventListener("change", on_focus);
 document.getElementById("tip5").addEventListener("change", on_focus);
 
-document.getElementById("tip_monthly").addEventListener("focus", on_focus);
-document.getElementById("tip1").addEventListener("focus", on_focus);
-document.getElementById("tip2").addEventListener("focus", on_focus);
-document.getElementById("tip3").addEventListener("focus", on_focus);
-document.getElementById("tip4").addEventListener("focus", on_focus);
-document.getElementById("tip5").addEventListener("focus", on_focus);
-
 
 var monthly = 0
 
@@ -162,14 +155,14 @@ function on_focus(){
     vars_def()
     slider_value_update()
     tab_value_update()
-    resize_result()
-
 
     document.getElementsByClassName("autentica_result")[0].innerHTML = format_prize(result_a)
     document.getElementsByClassName("autentica_result")[1].innerHTML = format_prize(result_a)
 
     document.getElementsByClassName("rendita_result")[0].innerHTML = format_prize(result_r)
     document.getElementsByClassName("rendita_result")[1].innerHTML = format_prize(result_r)
+
+    resize_result()
 }
 
 on_focus()
@@ -184,7 +177,7 @@ function format_input(){
             n = ''
         }
         if (input[i].value.length > 13){
-            n = ''
+            n = "9.999.999.999"
         }
         input[i].value = n.toLocaleString();
     }, false);}
@@ -196,183 +189,45 @@ function resize_result(){
 
         /* count just the numbers */
         var numbers_count = number_strip(results_scoped[i].textContent).length - number_strip(results_scoped[i].textContent.replace(/[0-9]/g,'')).length
-
-        if ((numbers_count > 5) && (!(results_scoped[i].classList.contains("reduce-1")))){
-            results_scoped[i].classList.add("reduce-1");
-            results_scoped[i].classList.remove("reduce-2")
-            results_scoped[i].classList.remove("reduce-3")
-            results_scoped[i].classList.remove("reduce-4")
-        }
-        if ((numbers_count > 7) && (!(results_scoped[i].classList.contains("reduce-2")))){
-            results_scoped[i].classList.add("reduce-2");
-            results_scoped[i].classList.remove("reduce-1")
-            results_scoped[i].classList.remove("reduce-3")
-            results_scoped[i].classList.remove("reduce-4")
-        }
-        if ((numbers_count > 9) && (!(results_scoped[i].classList.contains("reduce-3")))){
-            results_scoped[i].classList.add("reduce-3");
-            results_scoped[i].classList.remove("reduce-1")
-            results_scoped[i].classList.remove("reduce-2")
-            results_scoped[i].classList.remove("reduce-4")
-        }
-        if ((numbers_count > 10) && (!(results_scoped[i].classList.contains("reduce-4")))){
-            results_scoped[i].classList.add("reduce-4");
-            results_scoped[i].classList.remove("reduce-1")
-            results_scoped[i].classList.remove("reduce-2")
-            results_scoped[i].classList.remove("reduce-3")
+        if (i == 0){
         }
         if (numbers_count < 6){
             results_scoped[i].classList.remove("reduce-1")
             results_scoped[i].classList.remove("reduce-2")
             results_scoped[i].classList.remove("reduce-3")
             results_scoped[i].classList.remove("reduce-4")
-        }    
-    }
-}
-
-/*
-let input = document.querySelectorAll(".input");
-input.forEach(input => {
-
-input.addEventListener('input', function(event) {
-    var cursorPosition = getCaretPosition(input);
-    var valueBefore = input.value;
-    var lengthBefore = input.value.length;
-    var specialCharsBefore = getSpecialCharsOnSides(input.value);
-    var number = removeThousandSeparators(input.value);
-    var currentValue = input.value
-
-  if (input.value == '') {
-    return;
-  }
-
-  else if (input.value.replace(/[0-9]/g,'').replaceAll('.', '') != ''){
-    input.value = ''
-    return;
-  }
-  
-  input.value = formatNumber(number.replace(getCommaSeparator(), '.'));
-
-    // if deleting the comma, delete it correctly
-  if (currentValue == input.value && currentValue == valueBefore.substr(0, cursorPosition) + getThousandSeparator() + valueBefore.substr(cursorPosition)) {
-    input.value = formatNumber(removeThousandSeparators(valueBefore.substr(0, cursorPosition-1) + valueBefore.substr(cursorPosition)));
-    cursorPosition--;
-  }
-  
-  // if entering comma for separation, leave it in there (as well support .000)
-  var commaSeparator = getCommaSeparator();
-    if (valueBefore.endsWith(commaSeparator) || valueBefore.endsWith(commaSeparator+'0') || valueBefore.endsWith(commaSeparator+'00') || valueBefore.endsWith(commaSeparator+'000')) {
-    input.value = input.value + valueBefore.substring(valueBefore.indexOf(commaSeparator));
-  }
-
-  // move cursor correctly if thousand separator got added or removed
-  var specialCharsAfter = getSpecialCharsOnSides(input.value);
-  if (specialCharsBefore[0] < specialCharsAfter[0]) {
-        cursorPosition += specialCharsAfter[0] - specialCharsBefore[0];
-  } else if (specialCharsBefore[0] > specialCharsAfter[0]) {
-        cursorPosition -= specialCharsBefore[0] - specialCharsAfter[0];
-  }
-  setCaretPosition(input, cursorPosition);
-  
-  currentValue = input.value;
-});
-});
-
-function getSpecialCharsOnSides(x, cursorPosition) {
-    var specialCharsLeft = x.substring(0, cursorPosition).replace(/[0-9]/g, '').length;
-  var specialCharsRight = x.substring(cursorPosition).replace(/[0-9]/g, '').length;
-  return [specialCharsLeft, specialCharsRight]
-}
-
-function formatNumber(x) {
-   return getNumberFormat().format(x);
-}
-
-function removeThousandSeparators(x) {
-  return x.toString().replace(new RegExp(escapeRegExp(getThousandSeparator()), 'g'), "");
-}
-
-function getThousandSeparator() {
-  return getNumberFormat().format('1000').replace(/[0-9]/g, '')[0];
-}
-
-function getCommaSeparator() {
-  return getNumberFormat().format('0.01').replace(/[0-9]/g, '.')[0];
-}
-
-function getNumberFormat() {
-    return new Intl.NumberFormat();
-}
-/*
-
-/* From: http://stackoverflow.com/a/6969486/496992 */
-/*
-function escapeRegExp(str) {
-  return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
-}
-
-/*
-** Returns the caret (cursor) position of the specified text field.
-** Return value range is 0-oField.value.length.
-** From: http://stackoverflow.com/a/2897229/496992
-function getCaretPosition (oField) {
-  // Initialize
-  var iCaretPos = 0;
-
-  // IE Support
-  if (document.selection) {
-
-    // Set focus on the element
-    oField.focus();
-
-    // To get cursor position, get empty selection range
-    var oSel = document.selection.createRange();
-
-    // Move selection start to 0 position
-    oSel.moveStart('character', -oField.value.length);
-
-    // The caret position is selection length
-    iCaretPos = oSel.text.length;
-  }
-
-  // Firefox support
-  else if (oField.selectionStart || oField.selectionStart == '0')
-    iCaretPos = oField.selectionStart;
-
-  // Return results
-  return iCaretPos;
-}
-
-/* From: http://stackoverflow.com/a/512542/496992 
-function setCaretPosition(elem, caretPos) {
-    if(elem != null) {
-        if(elem.createTextRange) {
-            var range = elem.createTextRange();
-            range.move('character', caretPos);
-            range.select();
         }
-        else {
-            if(elem.selectionStart) {
-                elem.focus();
-                elem.setSelectionRange(caretPos, caretPos);
+        else if (numbers_count > 10){
+            if (!(results_scoped[i].classList.contains("reduce-4"))){
+                results_scoped[i].classList.add("reduce-4");
+                results_scoped[i].classList.remove("reduce-1")
+                results_scoped[i].classList.remove("reduce-2")
+                results_scoped[i].classList.remove("reduce-3")
             }
-            else
-                elem.focus();
+        }
+        else if (numbers_count > 9){
+            if (!(results_scoped[i].classList.contains("reduce-3"))){
+                results_scoped[i].classList.add("reduce-3");
+                results_scoped[i].classList.remove("reduce-1")
+                results_scoped[i].classList.remove("reduce-2")
+                results_scoped[i].classList.remove("reduce-4")
+            }
+        }
+        else if (numbers_count > 7){
+            if (!(results_scoped[i].classList.contains("reduce-2"))){
+                results_scoped[i].classList.add("reduce-2");
+                results_scoped[i].classList.remove("reduce-1")
+                results_scoped[i].classList.remove("reduce-3")
+                results_scoped[i].classList.remove("reduce-4")
+            }
+        }
+        else if (numbers_count > 5){
+            if (!(results_scoped[i].classList.contains("reduce-1"))){
+                results_scoped[i].classList.add("reduce-1");
+                results_scoped[i].classList.remove("reduce-2")
+                results_scoped[i].classList.remove("reduce-3")
+                results_scoped[i].classList.remove("reduce-4")
+            }
         }
     }
 }
-/*
-
-/***
-
-document.getElementsByClassName("cancel")[0].addEventListener("click", image_cancel(this.count))
-function image_cancel(){
-    document.getElementById("tip1").value = ""
-    on_focus()
-}
-document.getElementById("plus-1").addEventListener("click", image_plus)
-function image_plus(){
-    document.getElementsByClassName("calculator__tip")[0].value++
-    on_focus()
-}
-***/

@@ -369,38 +369,30 @@ h2.info {
 
 .reduce-1{
     font-size: 6vw;
-    color: yellow;
 }
 .reduce-2{
     font-size: 5vw;
-    color: orange;
 }
 .reduce-3{
     font-size: 4.5vw;
-    color: red;
 }
 .reduce-4{
     font-size: 3.8vw;
-    color: darkred;
 }
 div.resize-text{
     font-size: calc(1.3rem + 0.6vw);
 }
 div.reduce-1{
     font-size: calc(1.15rem + 0.6vw);
-    color: yellow;
 }
 div.reduce-2{
     font-size: calc(1.05rem + 0.6vw);
-    color: orange;
 }
 div.reduce-3{
     font-size: calc(0.9rem + 0.6vw);
-    color: red;
 }
 div.reduce-4{
     font-size: calc(0.75rem + 0.6vw);
-    color: darkred;
 }
 
 
@@ -433,11 +425,9 @@ div.reduce-4{
     }
     .reduce-1, .reduce-2, .reduce-3, .reduce-4, .resize-text{
         font-size: calc(2rem + 0.6vw);
-        color: black;
     }
     div.reduce-1, div.reduce-2, div.reduce-3, div.reduce-4{
         font-size: calc(1.325rem + 0.6vw);
-        color: black;
     }
 }
 
