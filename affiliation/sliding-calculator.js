@@ -8,6 +8,13 @@ document.getElementById("tip3").addEventListener("change", on_focus);
 document.getElementById("tip4").addEventListener("change", on_focus);
 document.getElementById("tip5").addEventListener("change", on_focus);
 
+document.getElementById("tip_monthly").addEventListener("focus", on_focus);
+document.getElementById("tip1").addEventListener("focus", on_focus);
+document.getElementById("tip2").addEventListener("focus", on_focus);
+document.getElementById("tip3").addEventListener("focus", on_focus);
+document.getElementById("tip4").addEventListener("focus", on_focus);
+document.getElementById("tip5").addEventListener("focus", on_focus);
+
 
 var monthly = 0
 
