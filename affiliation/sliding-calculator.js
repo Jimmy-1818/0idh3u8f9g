@@ -16,6 +16,11 @@ document.getElementById("tip4").addEventListener("focus", on_focus);
 document.getElementById("tip5").addEventListener("focus", on_focus);
 
 
+
+
+window.onload = on_focus
+
+
 var monthly = 0
 
 var s1 = 0
