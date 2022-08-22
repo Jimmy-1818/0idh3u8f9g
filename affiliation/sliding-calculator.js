@@ -15,9 +15,6 @@ document.getElementById("tip3").addEventListener("focus", on_focus);
 document.getElementById("tip4").addEventListener("focus", on_focus);
 document.getElementById("tip5").addEventListener("focus", on_focus);
 
-document.onload = on_focus()
-// the code here will run when all the HTML is loaded (but the css and the images may miss)
-
 
 var monthly = 0
 
