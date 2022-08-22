@@ -156,23 +156,6 @@ function tab_value_update(){
 }
 
 
-function on_focus(){
-    //**reconstruct_branch()**/
-    format_input()
-    vars_def()
-    slider_value_update()
-    tab_value_update()
-
-    document.getElementsByClassName("autentica_result")[0].innerHTML = format_prize(result_a)
-    document.getElementsByClassName("autentica_result")[1].innerHTML = format_prize(result_a)
-
-    document.getElementsByClassName("rendita_result")[0].innerHTML = format_prize(result_r)
-    document.getElementsByClassName("rendita_result")[1].innerHTML = format_prize(result_r)
-
-    resize_result()
-}
-
-on_focus()
 
 
 function format_input(){
@@ -183,7 +166,7 @@ function format_input(){
         if (input[i].value == '' || input[i].value == 0 || !is_number(input[i].value)){
             n = ''
         }
-        if (input[i].value.length > 13){
+        else if (input[i].value.length > 13){
             n = "9.999.999.999"
         }
         input[i].value = n.toLocaleString();
@@ -238,3 +221,22 @@ function resize_result(){
         }
     }
 }
+
+
+function on_focus(){
+    //**reconstruct_branch()**/
+    format_input()
+    vars_def()
+    slider_value_update()
+    tab_value_update()
+
+    document.getElementsByClassName("autentica_result")[0].innerHTML = format_prize(result_a)
+    document.getElementsByClassName("autentica_result")[1].innerHTML = format_prize(result_a)
+
+    document.getElementsByClassName("rendita_result")[0].innerHTML = format_prize(result_r)
+    document.getElementsByClassName("rendita_result")[1].innerHTML = format_prize(result_r)
+
+    resize_result()
+}
+
+on_focus()
