@@ -15,11 +15,8 @@ document.getElementById("tip3").addEventListener("focus", on_focus);
 document.getElementById("tip4").addEventListener("focus", on_focus);
 document.getElementById("tip5").addEventListener("focus", on_focus);
 
-
-
-
-window.onload = on_focus
-
+document.addEventListener("DOMContentLoaded", function(){
+//dom is fully loaded, but maybe waiting on images & css files
 
 var monthly = 0
 
